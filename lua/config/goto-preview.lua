@@ -26,7 +26,9 @@ end
 local function close()
     -- Cleanup stacked previews buffers
     for _, buf in ipairs(open_stack) do
-        vim.api.nvim_buf_delete(buf, { force = true })
+        if vim.api.nvim_buf_is_valid(buf) then
+            vim.api.nvim_buf_delete(buf, { force = true })
+        end
     end
     open_stack = {}
     -- Is this really required?

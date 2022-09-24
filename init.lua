@@ -147,9 +147,9 @@ utils.nmap("<c-j>", ":bp<cr>")
 utils.nmap("<c-k>", ":bn<cr>")
 
 -- Close current buffer and open the previous (drop unsaved changes)
-utils.nmap("<leader>k", ":bd! %<cr>")
+utils.nmap("<leader>k", ":bd! % | bp<cr>")
 -- Close current buffer and open the previous
-utils.nmap("<leader>q", ":bd %<cr>")
+utils.nmap("<leader>q", ":bd % | bp<cr>")
 
 -- Split mappings similar to tmux
 utils.nmap("<c-w>-", "<esc>:botright new<cr>")
