@@ -1,7 +1,9 @@
 -- Configuration for 'tagbar' plugin.
+--
+-- DEPRECATED: currently using 'symbols-outline'
 
 -- Toggle tagbar and move focus to it when opening
-utils.nmap("<F6>", ":TagbarToggle f<CR>")
+-- utils.nmap("<F6>", ":TagbarToggle f<CR>")
 
 vim.api.nvim_set_var("rust_use_custom_ctags_defs", 1)
 
