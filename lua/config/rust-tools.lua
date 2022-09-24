@@ -46,3 +46,6 @@ local opts = {
 }
 
 require('rust-tools').setup(opts)
+
+-- Required for 'RustFmtRange' command
+vim.g.rustfmt_command = "rustfmt +nightly"

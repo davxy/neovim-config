@@ -231,6 +231,3 @@ utils.resize_mode.enable(false)
 
 -- Open help in a new tab
 vim.cmd("cabbrev help tab help")
-
--- Required for 'RustFmtRange' command
-vim.g.rustfmt_command = "rustfmt +nightly"
