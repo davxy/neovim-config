@@ -41,6 +41,15 @@ Plug 'kevinhwang91/promise-async'
 " Unicode search utilities
 Plug 'chrisbra/unicode.vim'
 
+" Nice view while switching between buffers
+Plug 'ghillb/cybu.nvim'
+
+" Autopair with support for multiple characters
+Plug 'windwp/nvim-autopairs'
+
+" Dynamic scroll offset
+Plug 'drzel/vim-scrolloff-fraction'
+
 "-------------------------------------------------------------------------------
 " Look and Feel
 "-------------------------------------------------------------------------------
@@ -51,7 +60,6 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim'
 
 " Startup screen
-"Plug 'glepnir/dashboard-nvim'
 Plug 'goolord/alpha-nvim'
 
 " Development icons
@@ -68,9 +76,6 @@ Plug 'junegunn/goyo.vim'
 
 " Text highlight
 Plug 'junegunn/limelight.vim'
-
-" Dynamic scroll offset
-Plug 'drzel/vim-scrolloff-fraction'
 
 "-------------------------------------------------------------------------------
 " Git

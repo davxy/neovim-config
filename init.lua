@@ -145,6 +145,9 @@ vim.opt.shiftwidth = 4
 -- Buffers switching
 utils.nmap("<c-j>", ":bp<cr>")
 utils.nmap("<c-k>", ":bn<cr>")
+-- Looks like this is not very stable yet
+-- utils.nmap("<c-j>", ":CybuPrev<cr>")
+-- utils.nmap("<c-k>", ":CybuNext<cr>")
 
 -- Close current buffer and open the previous (drop unsaved changes)
 utils.nmap("<leader>k", ":bd! % | bp<cr>")
@@ -152,8 +155,14 @@ utils.nmap("<leader>k", ":bd! % | bp<cr>")
 utils.nmap("<leader>q", ":bd % | bp<cr>")
 
 -- Split mappings similar to tmux
-utils.nmap("<c-w>-", "<esc>:botright new<cr>")
-utils.nmap("<c-w>\\", "<esc>:botright vnew<cr>")
+local function welcome_page()
+    if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'alpha' then
+        vim.cmd('Alpha')
+    end
+end
+_G.welcome_page = welcome_page
+utils.nmap("<c-w>-", "<esc>:botright split | lua welcome_page()<cr>")
+utils.nmap("<c-w>\\", "<esc>:botright vsplit | lua welcome_page()<cr>")
 
 --------------------------------------------------------------------------------
 -- Folding tweaks

@@ -19,3 +19,6 @@ end
 
 -- lldb_start shortcut
 vim.api.nvim_create_user_command("Debug", function(info) lldb_start(info.args) end, { nargs = "*"})
+
+-- Debugger start mapping
+utils.nmap("<F8>", ":Debug<CR>")

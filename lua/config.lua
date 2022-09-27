@@ -1,5 +1,17 @@
 -- Plugins configurations
 
+require('cybu').setup {
+    behavior = {
+        mode = {
+            default = {
+                view = "paging",
+            }
+        }
+    }
+}
+
+require('nvim-autopairs').setup()
+
 require('config.nvim-tree')
 require('config.lualine')
 require('config.bookmarks')
