@@ -11,7 +11,7 @@ require('lualine').setup {
         section_separators = { left = '▶', right = '◀'},
         always_divide_middle = true,
         globalstatus = true,
-        disabled_filetypes = {'alpha', 'buffergator', 'NvimTree', 'Trouble', 'toggleterm', 'Outline', 'NeogitStatus'},
+        disabled_filetypes = utils.masked_filetypes,
     },
     sections = {
         lualine_a = {'mode'},

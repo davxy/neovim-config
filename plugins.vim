@@ -16,8 +16,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'kyazdani42/nvim-tree.lua'
 
 " Fuzzy finder
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'ibhagwan/fzf-lua'
 
 " Bookmarks
 Plug 'MattesGroeger/vim-bookmarks'
@@ -50,11 +49,14 @@ Plug 'windwp/nvim-autopairs'
 " Dynamic scroll offset
 Plug 'drzel/vim-scrolloff-fraction'
 
+" Session manager
+Plug 'Shatur/neovim-session-manager'
+
 "-------------------------------------------------------------------------------
 " Look and Feel
 "-------------------------------------------------------------------------------
 
-" Color scheme
+" Color schemes
 Plug 'ellisonleao/gruvbox.nvim'
 Plug 'sainnhe/gruvbox-material'
 Plug 'folke/tokyonight.nvim'
@@ -90,6 +92,7 @@ Plug 'tpope/vim-fugitive'
 " Git diff in gutter and some hunk utilities
 Plug 'lewis6991/gitsigns.nvim'
 
+" 'Magit' clone for neovim
 Plug 'TimUntersberger/neogit'
 
 " Utility to resolve git conflicts

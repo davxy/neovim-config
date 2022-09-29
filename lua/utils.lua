@@ -39,7 +39,17 @@ local function print_table(tab)
     print(vim.inspect(tab))
 end
 
---
+-- Filetypes to be masked from various tools
+local masked_filetypes = {
+    'alpha',
+    'buffergator',
+    'NvimTree',
+    'Trouble',
+    'toggleterm',
+    'Outline',
+    'NeogitStatus',
+    'nvimgdb',
+}
 
 local M = {
     nmap = nmap,
@@ -50,6 +60,7 @@ local M = {
     diff_orig = require('utils.diff_orig'),
     resize_mode = require('utils.resize_mode'),
     hex_mode = require('utils.hex_mode'),
+    masked_filetypes = masked_filetypes,
 }
 
 -- Export utils to the global table

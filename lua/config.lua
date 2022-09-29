@@ -1,5 +1,16 @@
--- Plugins configurations
+--
+-- Plugins configuration and setup
+--
 
+-- Session manager plugin setup
+require('session_manager').setup {
+    autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+}
+
+-- Autopairs plugin setup
+require('nvim-autopairs').setup()
+
+-- Cybu plugin setup
 require('cybu').setup {
     behavior = {
         mode = {
@@ -9,8 +20,6 @@ require('cybu').setup {
         }
     }
 }
-
-require('nvim-autopairs').setup()
 
 require('config.nvim-tree')
 require('config.lualine')
@@ -35,6 +44,10 @@ require('config.todo-comments')
 require('config.alpha')
 require('config.goto-preview')
 require('config.crates')
+
+--
+-- Further configs
+--
 
 -- Customize diagnostics
 -- https://neovim.io/doc/user/diagnostic.html

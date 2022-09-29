@@ -1,4 +1,4 @@
--- Neovim Configuration - v0.1.1
+-- Neovim Configuration - v0.1.2
 --
 -- Lua API:
 -- * https://neovim.io/doc/user/api.html
@@ -68,6 +68,18 @@ vim.opt.encoding = "utf-8"
 
 -- Enable mouse support
 vim.opt.mouse = "a"
+
+-- Disable swap files.
+vim.opt.swapfile = false
+
+-- Automatically read the file from disk if a change is detected.
+vim.opt.autoread = true
+-- Auto-reload files when modified externally
+-- https://unix.stackexchange.com/a/383044
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
 
 --------------------------------------------------------------------------------
 -- Appearence
@@ -143,11 +155,11 @@ vim.opt.shiftwidth = 4
 --------------------------------------------------------------------------------
 
 -- Buffers switching
-utils.nmap("<c-j>", ":bp<cr>")
-utils.nmap("<c-k>", ":bn<cr>")
+-- utils.nmap("<c-j>", ":bp<cr>")
+-- utils.nmap("<c-k>", ":bn<cr>")
 -- Looks like this is not very stable yet
--- utils.nmap("<c-j>", ":CybuPrev<cr>")
--- utils.nmap("<c-k>", ":CybuNext<cr>")
+utils.nmap("<c-j>", ":CybuPrev<cr>")
+utils.nmap("<c-k>", ":CybuNext<cr>")
 
 -- Close current buffer and open the previous (drop unsaved changes)
 utils.nmap("<leader>k", ":bd! % | bp<cr>")
@@ -220,17 +232,16 @@ vim.api.nvim_create_autocmd(
 -- Don't show last command
 vim.opt.showcmd = false
 
--- Don't show current mode (already shown by 'lualine' plugin)
+-- Don't show current mode (shown via 'lualine')
 vim.opt.showmode = false
+
+-- Don't show native tabline (shown via 'lualine')
+vim.opt.showtabline = 0
 
 -- Hide command line (requires neovim 0.8)
 -- TODO: Currently buggy: https://github.com/neovim/neovim/issues/20243
 --vim.opt.cmdheight = 0
 vim.opt.cmdheight = 1
-
--- Special comment color overwrite (e.g. used for code comments)
--- Not required when using 'treesitter' plugin.
--- vim.api.nvim_set_hl(0, "SpecialComment", { ctermfg = 243 })
 
 -- Disable folded text highlighting
 vim.api.nvim_set_hl(0, "Folded", { italic=true })
@@ -240,3 +251,7 @@ utils.resize_mode.enable(false)
 
 -- Open help in a new tab
 vim.cmd("cabbrev help tab help")
+
+-- Special comment color overwrite (e.g. used for code comments)
+-- Not required when using 'treesitter' plugin.
+-- vim.api.nvim_set_hl(0, "SpecialComment", { ctermfg = 243 })
