@@ -3,7 +3,8 @@
 -- References:
 -- - https://github.com/ibhagwan/fzf-lua
 --
--- ripgrep options:
+--
+-- ### ripgrep options:
 --  `--column`: Show column number
 --  `--line-number`: Show line number
 --  `--no-heading`: Do not show file headings in results
@@ -26,14 +27,39 @@ require('fzf-lua').setup({
         preview = {
             layout = 'vertical',
         }
+    },
+    fzf_opts = {
+        -- Case sensitive match
+        -- ['+i'] = '',
+        -- Enable exact-match (can be disabled by prefixing the word with ')
+        ['--exact'] = '',
+        -- Do not sort the result.
+        -- Sort already performed by grep.
+        ['--no-sort'] = '',
+    },
+    files = {
+        -- Changes to the defaults.
+        -- Added: --sort method
+        rg_opts = "--color=never --files --hidden --follow -g '!.git' --sort path",
+    },
+    blines = {
+        fzf_opts = {
+            -- Sort results
+            ['-s'] = '',
+            -- Case sensitive
+            ['+i'] = '',
+        }
+    },
+    grep = {
+        -- Changes to the defaults.
+        -- Added: --sort method
+        -- Removed: --smart-case
+        rg_opts = "--line-number --column --no-heading --color=always --sort path",
+        debug = true,
     }
 })
 
--- Fuzzy finder using ripgrep, smart case
-utils.nmap("<C-f>", ":FzfLua grep_visual<CR>")
-
--- Fuzzy finder within files using ripgrep
-utils.nmap("<C-g>", ":FzfLua live_grep<CR>")
-
--- Fuzzy finder within current buffer lines
+-- Shortcuts
+utils.nmap("<C-f>", ":FzfLua files<CR>")
+utils.nmap("<C-g>", ":FzfLua grep_visual<CR>")
 utils.nmap("<C-h>", ":FzfLua blines<CR>")
