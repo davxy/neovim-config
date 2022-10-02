@@ -5,10 +5,17 @@
 -- Session manager plugin setup
 require('session_manager').setup {
     autoload_mode = require('session_manager.config').AutoloadMode.Disabled,
+    -- Do not automatically create sessions.
+    -- Nevertheless, existing sessions are automatically saved on exit.
+    autosave_only_in_session = true,
 }
 
 -- Autopairs plugin setup
-require('nvim-autopairs').setup()
+require('nvim-autopairs').setup({
+    fast_wrap = {
+        map = '<C-e>',
+    },
+})
 
 -- Cybu plugin setup
 require('cybu').setup {

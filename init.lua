@@ -64,7 +64,7 @@ vim.opt.encoding = "utf-8"
 
 -- Keep the cursor in the middle
 -- (currently dynamically managed by the 'vim-scrolloff-fraction' plugin)
---vim.opt.scrolloff = 40
+vim.opt.scrolloff = 40
 
 -- Enable mouse support
 vim.opt.mouse = "a"
