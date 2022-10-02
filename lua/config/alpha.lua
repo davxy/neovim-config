@@ -33,22 +33,27 @@ local leader = "SPC"
 local function button(sc, txt, keybind, keybind_opts)
     local sc_ = sc:gsub("%s", ""):gsub(leader, "<leader>")
 
-    local opts = {
-        position = "center",
-        shortcut = "[" .. sc .. "] ",
-        cursor = 1,
-        width = 50,
-        align_shortcut = "left",
-        hl_shortcut = { { "Operator", 0, 1 }, { "Number", 1, #sc + 1 }, { "Operator", #sc + 1, #sc + 2 } },
-    }
+    local width = vim.api.nvim_win_get_width(0) / 2
+    if width > 100 then
+         width = 100
+    end
 
     local txt_len = txt:len()
-    local max_width = opts.width - 10
+    local max_width = width - 10
     if txt_len > max_width then
         local first_end = max_width / 2
         local last_start = txt_len - first_end
         txt = string.sub(txt, 0, first_end) .. " ܅ " .. string.sub(txt, last_start, txt_len)
     end
+
+    local opts = {
+        position = "center",
+        shortcut = "[" .. sc .. "] ",
+        cursor = 1,
+        width = width,
+        align_shortcut = "left",
+        hl_shortcut = { { "Operator", 0, 1 }, { "Number", 1, #sc + 1 }, { "Operator", #sc + 1, #sc + 2 } },
+    }
 
     if keybind then
         keybind_opts = if_nil(keybind_opts, { noremap = true, silent = true, nowait = true })
