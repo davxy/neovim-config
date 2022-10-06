@@ -239,9 +239,7 @@ vim.opt.showmode = false
 vim.opt.showtabline = 0
 
 -- Hide command line (requires neovim 0.8)
--- TODO: Currently buggy: https://github.com/neovim/neovim/issues/20243
---vim.opt.cmdheight = 0
-vim.opt.cmdheight = 1
+vim.opt.cmdheight = 0
 
 -- Disable folded text highlighting
 vim.api.nvim_set_hl(0, "Folded", { italic=true })
