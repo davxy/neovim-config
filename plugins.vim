@@ -64,13 +64,10 @@ Plug 'folke/tokyonight.nvim'
 " Startup screen
 Plug 'goolord/alpha-nvim'
 
-" Development icons
-Plug 'ryanoasis/vim-devicons'
-
 " Status and tabline
 Plug 'nvim-lualine/lualine.nvim'
 
-" Icons for statusline
+" Development icons
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Center text on screen
